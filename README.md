@@ -1,5 +1,5 @@
 
-# SUD
+# SUD 🧙🏽
 
 Hi! This is a Java based project I created about one month and a half in my process of learning this programming language.
 
