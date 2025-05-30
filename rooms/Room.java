@@ -19,7 +19,7 @@ public class Room {
     private String message;
 
     //costruttore
-    public Room(String name, String Message){
+    public Room(String name, String message){
         this.name = name;
         this.message = message;
         directions = new HashMap<>();
@@ -120,4 +120,6 @@ public class Room {
     public void setPresentMonsters(List<Monster> presentMonsters) {
         this.presentMonsters = presentMonsters;
     }
+
+
 }
