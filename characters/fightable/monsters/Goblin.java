@@ -17,6 +17,7 @@ public class Goblin extends Monster {
         setActualRoom(RoomMap.getRooms().get(dice.nextInt(GOB_POSSIBLE_ROOM_START,GOB_POSSIBLE_ROOM_END)));
         setExp(GOB_EXP_GIVEN);
         setHp(GOB_HP);
+        setGreetMessage("ARRGHRG!");
 //        getActualRoom().getPresentMonsters().add(this);
 //        getActualRoom().getPresentMonstersClasses().add("Goblin");
     }

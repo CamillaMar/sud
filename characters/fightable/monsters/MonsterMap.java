@@ -23,7 +23,7 @@ public class MonsterMap {
         monsters.add(krenko);
         Monster ardoz = (new Goblin("Ardoz"));
         monsters.add(ardoz);
-        monsters.add(new Goblin("Goro-Goro"));
+        monsters.add(new Goblin("Goro-goro"));
         monsters.add(new Goblin("Squee"));
         monsters.add(new Goblin("Hobgoblin"));
 
