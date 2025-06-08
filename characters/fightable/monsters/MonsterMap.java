@@ -36,10 +36,10 @@ public class MonsterMap {
         monsters.add(new Ghost("Nico", "Devastating, I can walk through walls!"));
 
         //DRAGHI
-        Monster nivMizzet = new Dragon("Niv-Mizzet");
+        Monster nivMizzet = new Dragon("Niv-mizzet");
         monsters.add(nivMizzet);
         monsters.add(new Dragon("Ugin"));
-        monsters.add(new Dragon("Nicol Bolas"));
+        monsters.add(new Dragon("Nicol bolas"));
         monsters.add(new Dragon("Neriv"));
 
         //DRAGO CON L'UNICO ANELLO
