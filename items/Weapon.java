@@ -1,8 +1,8 @@
 package sud.items;
 
-import sud.Answer;
+import sud.enums.Answer;
 
-import static sud.GameMap.console;
+import static sud.game.GameMap.console;
 
 public class Weapon extends Item {
 

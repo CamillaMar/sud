@@ -1,12 +1,12 @@
 package sud.items;
 
-import sud.Answer;
+import sud.enums.Answer;
 import sud.rooms.RoomMap;
 import sud.rooms.Room;
 
 import java.util.List;
 
-import static sud.GameMap.console;
+import static sud.game.GameMap.console;
 
 public class Map extends Item {
     private String outputFormat = "%20s%20s%20s%n";

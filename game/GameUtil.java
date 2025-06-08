@@ -1,7 +1,10 @@
-package sud;
+package sud.game;
 
+import sud.enums.Answer;
+import sud.enums.CardinalPoints;
+import sud.exceptions.EndOfGameException;
 import sud.characters.fightable.*;
-import sud.characters.fightable.monsters.Monster;
+import sud.characters.fightable.monsters.Guard;
 import sud.characters.fightable.monsters.MonsterMap;
 import sud.items.Tree;
 import sud.rooms.RoomMap;
@@ -9,7 +12,7 @@ import sud.rooms.RoomMap;
 import java.io.Console;
 import java.util.*;
 
-import static sud.GameMap.console;
+import static sud.game.GameMap.console;
 import static sud.characters.fightable.Character.dice;
 import static sud.characters.fightable.monsters.Guard.GUARD_POSSIBLE_ROOM;
 
@@ -73,6 +76,7 @@ public class GameUtil {
         continueTheMessage();
         System.out.print("Strange monsters and ghosts coming from the dark woods have been creeping around the city entrance in the last days and the civilians are well preoccupied." );
         continueTheMessage();
+        System.out.println();
         System.out.printf("Will you be the hero that's going to stop this menace?%n" +
                 "If you think so, go east to the sacred Temple and talk to the wise Elf Elrond, he will show you the way to braveness%n" + RESET);
         continueTheMessage();
@@ -87,13 +91,14 @@ public class GameUtil {
         String ans;
         System.out.printf(PURPLE + "What do you want to do now?%n" + RESET);
         do{
-            System.out.println("Write 'FIGHT' or 'F' if you want to fight some monsters.");
-            System.out.println("Write 'MOVE' or 'M' if you want to start moving.");
-            System.out.println("Write 'PICK' or 'P' if you want to pick an item.");
-            System.out.println("Write 'TALK' or 'T' if you want to talk to someone.");
-            System.out.println("Write 'STATS' or 'S' to see you statistics");
-            System.out.println("Write 'INVENTORY' or 'I' to see your inventory");
-            System.out.printf("Write 'Q' if you want to end the game.%n");
+            System.out.println("Write 'fight' or 'f' if you want to fight some monsters.");
+            System.out.println("Write 'move' or 'm' if you want to start moving.");
+            System.out.println("Write 'pick' or 'p' if you want to pick an item.");
+            System.out.println("Write 'talk' or 't' if you want to talk to someone.");
+            System.out.println("Write 'stats' or 's' to see you statistics");
+            System.out.println("Write 'inventory' or 'i' to see your inventory");
+            //TODO aggiungere comando look
+            System.out.printf("Write 'q' if you want to end the game.%n");
             ans = console.readLine().toUpperCase().trim();
         }while(!choices.contains(ans));
         player.doAsAsked(ans);
@@ -184,27 +189,10 @@ public class GameUtil {
 
     //METODO PER FAR SPOSTARE LE GUARDIE ALLA FINE DI OGNI CICLO
     public static void randomizeTheGuards(){
-        List<Monster> guards = MonsterMap.getGuards();
-        guards.forEach(g -> g.getActualRoom().getPresentEntities().remove(g.getName()));
-        guards.forEach(g -> g.getActualRoom().getPresentMonsters().remove(g));
+        List<Guard> guards = MonsterMap.getGuards();
+        guards.forEach(Guard::leaveActualRoom);
         guards.forEach(g -> g.setActualRoom(RoomMap.getRooms().get(dice.nextInt(GUARD_POSSIBLE_ROOM))));
     }
-
-    //MESSO DIRETTAMENTE IN BAKER!
-//    public static void interactWithTheBaker(){
-//        Baker baker = (Baker)NPCMap.getNpcs().getFirst();
-//        Set<String> food = new HashSet<>(baker.getInventory().keySet());
-//        String ans = null;
-//        baker.greet();
-//        if(baker.doesWantFood()){
-//            do{
-//                System.out.println("Choose:");
-//                baker.printInventory();
-//                ans = toTitleCase(console.readLine());
-//            } while (!food.contains(ans));
-//            player.eat(baker.getInventory().get(ans));
-//        }
-//    }
 
     //METODO PER INTERAGIRE
     public static void askWhoToTalk(){
@@ -220,8 +208,6 @@ public class GameUtil {
         } else {
             System.out.println("They're not here right now.");
         }
-
-
     }
 
     //METODI UTIL

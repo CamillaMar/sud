@@ -17,7 +17,7 @@ public abstract class Monster extends Character {
     @Override
     public void attack(Character character){
         int damage = getStrength();
-        System.out.printf("%s is attacking %s for %d points%n", getName(), character.getName(), damage);
+        declareAttack(getName(), character.getName(), damage);
         if(character.tryToDodge()){
             damage = 0;
             System.out.println(character.getName() + " dodged the attack!");

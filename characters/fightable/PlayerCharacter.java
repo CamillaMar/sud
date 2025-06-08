@@ -1,9 +1,9 @@
 package sud.characters.fightable;
 
-import sud.Answer;
-import sud.CardinalPoints;
-import sud.EndOfGameException;
-import sud.GameUtil;
+import sud.enums.Answer;
+import sud.enums.CardinalPoints;
+import sud.exceptions.EndOfGameException;
+import sud.game.GameUtil;
 import sud.characters.fightable.monsters.Guard;
 import sud.characters.fightable.monsters.Monster;
 import sud.items.*;
@@ -12,8 +12,8 @@ import sud.rooms.RoomMap;
 import java.util.HashMap;
 import java.util.List;
 
-import static sud.GameMap.console;
-import static sud.GameUtil.*;
+import static sud.game.GameMap.console;
+import static sud.game.GameUtil.*;
 
 public abstract class PlayerCharacter extends Character {
     public static final int MAX_RESPAWN = 5;
@@ -278,7 +278,7 @@ public abstract class PlayerCharacter extends Character {
         List<Monster> monstersToFight = this.getActualRoom().getPresentMonsters().stream().
                 filter(monster -> monster.getClass().getSimpleName().equals(monsterClass)).toList();
         checkForCombat(monstersToFight.getFirst());
-        if (monsterClass.equals("Cat") && !guardsPresent.isEmpty()) {
+        if (monsterClass.equals("Fairy") && !guardsPresent.isEmpty()) {
             Guard guard = (Guard) guardsPresent.getFirst();
             guard.attackForTheFairy();
             this.askForRespawn();

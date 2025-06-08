@@ -1,6 +1,6 @@
 package sud.characters.fightable;
 
-import sud.CardinalPoints;
+import sud.enums.CardinalPoints;
 import sud.characters.Entity;
 
 import java.util.Random;
@@ -74,6 +74,9 @@ public abstract class Character extends Entity {
         System.out.println(getName() + " is dead.");
     }
 
+    public void declareAttack(String firstName, String secondName, int damage){
+        System.out.printf("%s is attacking %s for %d points%n", firstName, secondName, damage);
+    }
 
     public abstract void respawn();
 

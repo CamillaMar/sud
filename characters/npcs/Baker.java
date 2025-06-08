@@ -1,6 +1,6 @@
 package sud.characters.npcs;
 
-import sud.Answer;
+import sud.enums.Answer;
 import sud.characters.Entity;
 import sud.items.Food;
 import sud.rooms.RoomMap;
@@ -8,8 +8,8 @@ import sud.rooms.RoomMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import static sud.GameMap.console;
-import static sud.GameUtil.*;
+import static sud.game.GameMap.console;
+import static sud.game.GameUtil.*;
 
 public class Baker extends Entity {
     private static final int BAKER_POSSIBLE_ROOM = 3;

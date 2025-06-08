@@ -1,8 +1,10 @@
-package sud;
+package sud.game;
+
+import sud.exceptions.EndOfGameException;
 
 import java.io.Console;
 
-import static sud.GameUtil.*;
+import static sud.game.GameUtil.*;
 
 public class GameMap {
     public static Console console = System.console();

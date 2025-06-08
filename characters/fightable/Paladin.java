@@ -2,7 +2,7 @@ package sud.characters.fightable;
 
 import sud.characters.Entity;
 
-import static sud.GameUtil.*;
+import static sud.game.GameUtil.*;
 
 public class Paladin extends PlayerCharacter {
     private static final int MIN_INTEL = 3;
@@ -17,7 +17,7 @@ public class Paladin extends PlayerCharacter {
     @Override
     public void attack(Character character) {
         int damage = checkPaladin(getStrength());
-        System.out.printf("%s is attacking %s for %d points%n", getName(), character.getName(), damage);
+        declareAttack(getName(), character.getName(), damage);
         if(character.tryToDodge()){
             damage = 0;
             System.out.println(character.getName() + " dodged the attack!");

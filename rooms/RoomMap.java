@@ -1,6 +1,6 @@
 package sud.rooms;
 
-import sud.CardinalPoints;
+import sud.enums.CardinalPoints;
 import sud.items.Tree;
 
 import java.util.ArrayList;

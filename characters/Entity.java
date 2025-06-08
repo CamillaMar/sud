@@ -5,17 +5,20 @@ import sud.items.Item;
 import sud.rooms.Room;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Consumer;
 
-import static sud.GameUtil.*;
+import static sud.game.GameUtil.*;
 
 public abstract class Entity {
     private static int lastId = 0;
     private int characterId;
     private String name;
-    private HashMap<String, Item> inventory;
+    private Map<String, Item> inventory;
     private Room actualRoom;
     private boolean hasQuest;
     private String greetMessage;
+    protected Consumer<String> output;
 
     public Entity(String name){
         this.name = name;
@@ -24,10 +27,17 @@ public abstract class Entity {
         this.characterId = lastId;
     }
 
+    public Entity(String name, Consumer<String> output){
+        this(name);
+        this.output = output;
+    }
+
     public void greet(){
         System.out.println(name + " says : " + BLUE + greetMessage + RESET);
+        //output.accept(name + " says : " + BLUE + greetMessage + RESET);
         delay(800);
     }
+
     public void printInventory(){
         if(inventory.isEmpty()){
             System.out.printf("%s's inventory is empty.%n", name);
@@ -60,10 +70,10 @@ public abstract class Entity {
         }
     }
 
-    public HashMap<String, Item> getInventory() {
+    public Map<String, Item> getInventory() {
         return inventory;
     }
-    public void setInventory(HashMap<String, Item> inventory) {
+    public void setInventory(Map<String, Item> inventory) {
         this.inventory = inventory;
     }
 

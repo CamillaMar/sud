@@ -6,7 +6,7 @@ import sud.items.Weapon;
 import sud.rooms.RoomMap;
 import sud.rooms.Room;
 
-import static sud.GameUtil.*;
+import static sud.game.GameUtil.*;
 import static sud.characters.fightable.Character.dice;
 
 public class Elf extends Entity {
@@ -27,11 +27,11 @@ public class Elf extends Entity {
     }
 
     @Override
-    public void greet(){
+    public void greet() {
         if(doesHaveQuest()) {
-            if(getName().equals("Arwen")){
+            if(getName().equals("Arwen")) {
                 printArwenInstructions();
-            } else if(getName().equals("Elrond")){
+            } else if(getName().equals("Elrond")) {
                 printElrondQuestFirstMessage();
             }
         } else if(player.getInventory().containsKey("The One Ring")) {
@@ -43,8 +43,8 @@ public class Elf extends Entity {
             System.out.println(getName() + " says : " + BLUE + getGreetMessage() + RESET);
             delay(500);
         }
-
     }
+
     public void printArwenInstructions(){
         System.out.println("PRESS ENTER TO CONTINUE READING.");
         delay(300);

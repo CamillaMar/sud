@@ -1,10 +1,9 @@
 package sud.items;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import static sud.GameUtil.player;
+import static sud.game.GameUtil.player;
 
 public class Tree extends Item {
     private List<Food> fruits;

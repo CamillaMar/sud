@@ -1,13 +1,13 @@
 package sud.rooms;
 
-import sud.CardinalPoints;
+import sud.enums.CardinalPoints;
 import sud.characters.Entity;
 import sud.characters.fightable.monsters.Monster;
 import sud.items.Item;
 
 import java.util.*;
 
-import static sud.GameUtil.*;
+import static sud.game.GameUtil.*;
 
 public class Room {
     //field
@@ -34,6 +34,9 @@ public class Room {
     }
     public void leaveRoom(Entity entity) {
             presentEntities.remove(name);
+            if(entity instanceof Monster){
+                presentMonsters.remove((Monster)entity);
+            }
     }
 
     public void changeRoomNPC(CardinalPoints cardinal, Entity entity){

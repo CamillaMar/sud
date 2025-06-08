@@ -14,8 +14,8 @@ public class Priest extends PlayerCharacter {
     //Nel prete l'attacco è influenzato dalla fede
     @Override
     public void attack(Character character) {
-        int damage = checkFaith(getStrength());
-        System.out.printf("%s is attacking %s for %d points%n", getName(), character.getName(), damage);
+        int damage = getDamageFromFaith();
+        declareAttack(getName(), character.getName(), damage);
         if(character.tryToDodge()){
             damage = 0;
             System.out.println(character.getName() + " dodged the attack!");
@@ -26,12 +26,12 @@ public class Priest extends PlayerCharacter {
         }
     }
 
-    public int checkFaith(int damage){
+    private int getDamageFromFaith(){
         if(dice.nextInt(MAX_FAITH-faith) == 0){
             System.out.println("%s's intelligence makes his attack stronger!");
-            return damage + 2;
+            return getStrength() + 2;
         }
-        return damage;
+        return getStrength();
     }
 
 }

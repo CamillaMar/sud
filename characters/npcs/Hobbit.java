@@ -6,7 +6,7 @@ import sud.rooms.RoomMap;
 import java.util.ArrayList;
 import java.util.List;
 
-import static sud.GameUtil.*;
+import static sud.game.GameUtil.*;
 import static sud.characters.fightable.Character.dice;
 
 public class Hobbit extends Entity {

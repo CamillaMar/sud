@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MonsterMap {
     static private List<Monster> monsters = new ArrayList<>();
-    static private List<Monster> guards = new ArrayList<>();
+    static private List<Guard> guards = new ArrayList<>();
     static {
         //GATTI
         Monster fluffy = new Fairy("Fluffy");
@@ -61,7 +61,7 @@ public class MonsterMap {
         nivMizzet.pickItem(new AgilityItem("Magic cloak",3));
     }
 
-    public static List<Monster> getGuards() {
+    public static List<Guard> getGuards() {
         return guards;
     }
 }
